@@ -1,1 +1,19 @@
+server:
+  port: 8888
 
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/webs?characterEncoding=UTF-8
+    username: webs
+    password: webs@1234
+    hikari:
+      minimum-idle: 30
+      maximum-pool-size: 30
+      connection-test-query: select now()
+      connection-timeout: 60000
+  jpa:
+    database: mysql
+    show-sql: true
+    generate-ddl: false

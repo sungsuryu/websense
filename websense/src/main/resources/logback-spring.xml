@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 second">
+	<property name="LOG_DIR" value="C:/logs" />
+	<property name="LOG_MAX_HISTORY" value="1000" />
+	<property name="LOG_FILE_SIZE" value="5" />
+
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+			<Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+    
+    
+    <appender name="PRCLOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>    	
+    	</filter>
+    	<file>${LOG_DIR}/websense.log</file>
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    		<fileNamePattern>${LOG_DIR}\websense.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+    		<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+    			<maxFileSize>${LOG_FILE_SIZE}MB</maxFileSize>
+    		</timeBasedFileNamingAndTriggeringPolicy>
+    		<maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+    	</rollingPolicy>
+        <encoder>
+			<Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <!--
+    <logger name="org.apache.ibatis" level="DEBUG" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Error"/>
+    </logger>-->
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="PRCLOG"/>
+    </root>
+    
+</configuration>
