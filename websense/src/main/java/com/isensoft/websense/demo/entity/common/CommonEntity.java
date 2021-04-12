@@ -24,7 +24,7 @@ public class CommonEntity  {
 	private String insertedId;
 	
 	@CreationTimestamp
-	@Column(name="INSERTED_DATE", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable=false)
+	@Column(name="INSERTED_DATE", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=true, updatable=false)
 	@Basic(optional=false)
 	private LocalDateTime insertedDate;
 	
@@ -33,7 +33,7 @@ public class CommonEntity  {
 	private String updatedId;
 	
 	@CreationTimestamp
-	@Column(name="UPDATED_DATE", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable=false)
+	@Column(name="UPDATED_DATE", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable=true)
 	@Basic(optional=false)
 	private LocalDateTime updatedDate;
 }
