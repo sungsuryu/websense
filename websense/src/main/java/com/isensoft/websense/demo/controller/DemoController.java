@@ -1,6 +1,7 @@
 package com.isensoft.websense.demo.controller;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -33,9 +34,14 @@ public class DemoController {
 	@PostMapping("/employee")
 	public HashMap<String, Object> getListCompany(@PathVariable String companyId, @Valid @RequestBody DemoParam demoParam, BindingResult bindingResult) throws Exception {
 		
-		demoService.getListCompany(demoParam, companyId);
+//		demoService.getListCompany(demoParam, companyId);
 		
+		Optional.ofNullable(demoService.getListCompany());
 		
-		return new HashMap<String, Object>();
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		
+		result.put("result", demoService.getListCompany());
+		
+		return result;
 	}
 }
