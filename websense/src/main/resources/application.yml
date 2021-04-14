@@ -2,7 +2,10 @@ server:
   port: 8888
 
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile:
+      - dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/webs?characterEncoding=UTF-8
@@ -16,4 +19,5 @@ spring:
   jpa:
     database: mysql
     show-sql: true
-    generate-ddl: false
+    generate-ddl: false  devtools:    add-properties: false
+logging:  level:    web: debug
