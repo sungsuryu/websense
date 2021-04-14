@@ -10,13 +10,18 @@ import javax.persistence.Id;
 
 import com.isensoft.websense.demo.entity.common.CommonEntity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity(name="TB_EMPLOYEE")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString(exclude="passwd")
 public class DemoEmployee extends CommonEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -37,4 +42,13 @@ public class DemoEmployee extends CommonEntity implements Serializable {
 	
 	@Column(name="PHONE_NUM")
 	private String phoneNum;
+	
+	@Column(name="LOGIN_ID")
+	private String loginId;
+	
+	@Column(name="PASSWD")
+	private String passwd;
+	
+	@Column(name="JWT_TOCKEN")
+	private String jwtToken;
 }

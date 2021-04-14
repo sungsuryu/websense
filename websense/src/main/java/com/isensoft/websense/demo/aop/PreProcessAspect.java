@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Order(0)
 public class PreProcessAspect {
 	
-	@Pointcut("@within(org.springframework.web.bind.annotation.RestController)")
+	@Pointcut("within(org.springframework.web.bind.annotation.RestController)")
 	public void restcontroller() {}
 	
 	@Pointcut("within(com.isensoft.websense.demo.controller.*)")
