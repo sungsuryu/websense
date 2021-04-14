@@ -18,5 +18,5 @@ spring:
   jpa:
     database: mysql
     show-sql: true
-    generate-ddl: false  devtools:    add-properties: false
+    generate-ddl: false    open-in-view: true  devtools:    add-properties: false
 logging:  level:    web: debug
