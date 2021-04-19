@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping(value="/api/{companyId}/")
+@RequestMapping(value="/api/demo/")
 public class DemoController {
 
 	@Autowired
@@ -31,7 +31,7 @@ public class DemoController {
 		return new HashMap<String, Object>();
 	}
 	
-	@PostMapping("/employee")
+	@PostMapping("employee")
 	public HashMap<String, Object> getListCompany(@PathVariable String companyId, @Valid @RequestBody DemoParam demoParam, BindingResult bindingResult) throws Exception {
 		
 //		demoService.getListCompany(demoParam, companyId);
